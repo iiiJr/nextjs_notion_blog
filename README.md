@@ -14,7 +14,7 @@ https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c3
 
 
 ### 发布
-最后在去vercel[https://vercel.com/]发布你的项目。
+最后在去[vercel](https://vercel.com/)发布你的项目。
 
 ### 举个🌰
 我的Blog: https://next-js-notion-blog-nine.vercel.app/
