@@ -1,20 +1,12 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
-// export default function handler(req, res) {
-//   res.status(200).json({ name: 'John Doe' })
-// }
-
-// import { NotionRenderer, BlockMapType } from "react-notion";
 import fetch from "node-fetch";
 import Link from "next/link";
-// import Image from "next/image";
 
 const user = {
-  NOTION_Page_id: `72990f90f3b944de90ff1a6eb6738bd0`,
-  name: `iiiJr's Blog`,
-  intro: `Hi there👋 `,
-  github: `https://github.com/iiiJr`,
-  githubName: `iiiJr`,
+  NOTION_Page_id: `72a0620229214dc38358fec81666c372`,  // 你的页面id
+  name: `iiiJr's Blog`,                                 // blog 标题
+  intro: `Hi there👋 `,                                 // blog 介绍
+  github: `https://github.com/iiiJr`,                   // github 链接
+  githubName: `iiiJr`,                                  // github 用户名
 };
 
 const NOTION_BLOG_ID =

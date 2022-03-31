@@ -10,12 +10,14 @@ https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c3
                                         |------------------------------| 这一段就是你的页面ID
 ```
 ### fork
-然后需要fork我的项目并修改目录下的文件 src/pages/user.js 为你的信息；
+然后需要fork我的项目并修改目录下的文件 src/pages/index.js 中的user变量参数为你的信息;
 
 
 ### 发布
 最后在去vercel[https://vercel.com/]发布你的项目。
 
+### 举个🌰
+我的Blog: https://next-js-notion-blog-nine.vercel.app/
 ## 其它
 使用到的技术：nextJS,notion,[react-notion-x](https://github.com/NotionX/react-notion-x),[react-notion](https://github.com/splitbee/react-notion)
 
