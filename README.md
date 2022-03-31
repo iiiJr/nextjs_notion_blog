@@ -15,7 +15,7 @@ https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c3
 
 ### 发布
 最后在去[vercel](https://vercel.com/)发布你的项目。
-但你还在发布时候修改一下环境变量：
+但你还需要在部署时修改一下环境变量：
 ```
 NOTION_BLOG_ID=你的页面ID
 NAME=你的博客名
