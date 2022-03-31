@@ -2,15 +2,15 @@ import fetch from "node-fetch";
 import Link from "next/link";
 
 const user = {
-  NOTION_Page_id: `72990f90f3b944de90ff1a6eb6738bd0`,  // 你的页面id
-  name: `iiiJr's Blog`,                                 // blog 标题
-  intro: `Hi there👋 `,                                 // blog 介绍
-  github: `https://github.com/iiiJr`,                   // github 链接
-  githubName: `iiiJr`,                                  // github 用户名
+  NOTION_Page_id: process.env.NOTION_BLOG_ID,  // 你的页面id
+  name: process.env.NAME || 'Mysterious man',              // blog 标题
+  intro: process.env.INTRO || 'Hi there👋',                                 // blog 介绍
+  github: `https://github.com/${process.env.GITHUB_NAME}`,                   // github 链接
+  githubName: process.env.GITHUB_NAME || 'Mysterious',                                  // github 用户名
 };
-
+// console.log(process.env.NOTION_BLOG_ID)
 const NOTION_BLOG_ID =
-  process.env.NOTION_BLOG_ID || user.NOTION_Page_id;
+  process.env.NOTION_BLOG_ID || `72990f90f3b944de90ff1a6eb6738bd0`;
 
 export const getDatabase = async () => {
   return await fetch(
@@ -46,7 +46,7 @@ function Blog({blocks ,page, friend, user}) {
       <div className="my-6 bg-gray-200 container mx-auto mb-6 md:my-6 px-4 sm:px-6 justify-center flex-grow max-w-3xl bg-base-200 rounded p-4" >
         <header className="mb-6">
           <div className="Header-img">{page.id}</div>
-          <div className="Header-title">{user.name}</div>
+          <div className="Header-title">{`${user.name}'s Blog`}</div>
           <div className="Header-intro ">{user.intro}</div>
         </header>
         <div>
