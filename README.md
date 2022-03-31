@@ -10,11 +10,18 @@ https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c3
                                         |------------------------------| 这一段就是你的页面ID
 ```
 ### fork
-然后需要fork本项目并修改目录下的文件 src/pages/index.js 中的user变量参数为你的信息;
+然后需要fork本项目
 
 
 ### 发布
 最后在去[vercel](https://vercel.com/)发布你的项目。
+但你还在发布时候修改一下环境变量：
+```
+NOTION_BLOG_ID=你的页面ID
+NAME=你的博客名
+INTRO=介绍
+GITHUB_NAME=github名字
+```
 
 ### 举个🌰
 我的Blog: https://next-js-notion-blog-nine.vercel.app/
