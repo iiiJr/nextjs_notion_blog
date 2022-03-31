@@ -3,7 +3,7 @@
 ## 使用
 
 ### notion
-需要去[notion](https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c37eac615436fa6b46dc9e995b2b0)复制链接我的文章并加入到自己的notion中，在单击你的notion页面右上角的共享按钮，然后复制你的页面链接，拿出你自己的页面ID;
+需要去[notion](https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c37eac615436fa6b46dc9e995b2b0)复制我的table并加入到自己的notion中，在单击你的notion页面右上角的共享按钮，然后复制你的页面链接，拿出你自己的页面ID;
 ```
 // 举个例子
 https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c37eac615436fa6b46dc9e995b2b0
