@@ -24,7 +24,7 @@ GITHUB_NAME=github名字
 ```
 
 ### 举个🌰
-我的Blog: https://next-js-notion-blog-nine.vercel.app/
+我的Blog: https://iiijr.site/
 ## 其它
 使用到的技术：nextJS,notion,[react-notion-x](https://github.com/NotionX/react-notion-x),[react-notion](https://github.com/splitbee/react-notion)
 
