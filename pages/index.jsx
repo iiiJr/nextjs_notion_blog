@@ -79,7 +79,9 @@ function Blog({blocks ,page, friend, user}) {
           })}
         </div>
         <footer className="footer">
-          <div>github: iiiJr</div>
+          <Link href={user.github}>
+            <div className="cursor-pointer">github: {user.githubName}</div>
+          </Link>
         </footer>
       </div>
     </div>
