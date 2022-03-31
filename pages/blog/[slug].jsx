@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   const table = await getDatabase();
   return {
     paths: table.map((row) => `/blog/${row.Slug}`),
-    fallback: true,
+    fallback: false,
   };
 }
 
@@ -32,10 +32,10 @@ const BlogPost = ({ item, blocks, friend }) => {
   return (
     <div className="container mx-auto max-w-3xl" >
       <nav className="navbar">
-        <Link href="/">
+        <Link href="/" passHref>
           <div className=" navbar-brand cursor-pointer"><span>主页</span></div>
         </Link>
-        <Link href="/blog/[slug]" as={`/blog/${friend.Slug}`}>
+        <Link href="/blog/[slug]" as={`/blog/${friend.Slug}`} passHref>
           <div className=" navbar-brand cursor-pointer"><span>友链</span></div>
         </Link>
       </nav>

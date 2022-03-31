@@ -7,8 +7,15 @@
 // import { NotionRenderer, BlockMapType } from "react-notion";
 import fetch from "node-fetch";
 import Link from "next/link";
-import Image from "next/image";
-import {user} from "./user";
+// import Image from "next/image";
+
+const user = {
+  NOTION_Page_id: `72990f90f3b944de90ff1a6eb6738bd0`,
+  name: `iiiJr's Blog`,
+  intro: `Hi there👋 `,
+  github: `https://github.com/iiiJr`,
+  githubName: `iiiJr`,
+};
 
 const NOTION_BLOG_ID =
   process.env.NOTION_BLOG_ID || user.NOTION_Page_id;
@@ -31,16 +38,16 @@ export const getFriendChain = async (data) => {
 };
 
 
+
 function Blog({blocks ,page, friend, user}) {
   // id, Tag, Published, Description, Cover, Date, Page
   return (
-    // rgb(209 204 204)
     <div className="container mx-auto max-w-3xl">
       <nav className="navbar">
-        <Link href="/">
+        <Link href="/" passHref>
           <div className=" navbar-brand cursor-pointer"><span>主页</span></div>
         </Link>
-        <Link href="/blog/[slug]" as={`/blog/${friend.Slug}`}>
+        <Link href="/blog/[slug]" as={`/blog/${friend.Slug}`} passHref>
           <div className=" navbar-brand cursor-pointer"><span>友链</span></div>
         </Link>
       </nav>
@@ -54,7 +61,7 @@ function Blog({blocks ,page, friend, user}) {
           {blocks.map((item) => {
             if(item.Published){
               return <div key={item.id} className="cursor-pointer ">
-                <Link href="/blog/[slug]" as={`/blog/${item.Slug}`}>
+                <Link href="/blog/[slug]" as={`/blog/${item.Slug}`} passHref>
                   <div className=" Blog-card box-border p-4 ">
                     <div className="Blog-card-title">{item.Page}</div>
                     <div className="Blog-card-content">
@@ -79,7 +86,7 @@ function Blog({blocks ,page, friend, user}) {
           })}
         </div>
         <footer className="footer">
-          <Link href={user.github}>
+          <Link href={user.github} passHref>
             <div className="cursor-pointer">github: {user.githubName}</div>
           </Link>
         </footer>
