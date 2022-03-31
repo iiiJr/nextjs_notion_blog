@@ -33,7 +33,7 @@ const BlogPost = ({ item, blocks, friend }) => {
     <div className="container mx-auto max-w-3xl" >
       <nav className="navbar">
         <Link href="/">
-          <div className=" navbar-brand cursor-pointer"><span>博客主页</span></div>
+          <div className=" navbar-brand cursor-pointer"><span>主页</span></div>
         </Link>
         <Link href="/blog/[slug]" as={`/blog/${friend.Slug}`}>
           <div className=" navbar-brand cursor-pointer"><span>友链</span></div>

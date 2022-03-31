@@ -1,34 +1,24 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+一款基于notion的博客，发布后可以在notion中直接添加和修改文章
 
-## Getting Started
+## 使用
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+### notion
+需要去notion[https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c37eac615436fa6b46dc9e995b2b0]复制链接我的文章并加入到自己的notion中，在单击你的notion页面右上角的共享按钮，然后复制你的页面链接，拿出你自己的页面ID;
 ```
+// 举个例子
+https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c37eac615436fa6b46dc9e995b2b0
+                                        |------------------------------| 这一段就是你的页面ID
+```
+### fork
+然后需要fork我的项目并修改目录下的文件 src/pages/user.js 为你的信息；
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### 发布
+最后在去vercel[https://vercel.com/]发布你的项目。
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 其它
+使用到的技术：nextJS,notion,react-notion-x[https://github.com/NotionX/react-notion-x],react-notion[https://github.com/splitbee/react-notion]
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## TODO
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [ ] 主题系统
