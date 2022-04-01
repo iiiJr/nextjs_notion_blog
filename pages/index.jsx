@@ -10,7 +10,7 @@ const user = {
 };
 // console.log(process.env.NOTION_BLOG_ID)
 const NOTION_BLOG_ID =
-  process.env.NOTION_BLOG_ID || `72990f90f3b944de90ff1a6eb6738bd0`;
+  process.env.NOTION_BLOG_ID || `72a0620229214dc38358fec81666c372`;
 
 export const getDatabase = async () => {
   return await fetch(
