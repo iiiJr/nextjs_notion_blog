@@ -22,13 +22,14 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const table = await getDatabase();
   return {
-    paths: table.map((row) => `/blog/${row.Slug}`),
-    fallback: false,
+    paths: table.map((row) => {`/blog/${row.Slug}`} ),
+    fallback: true,
   };
 }
 
 const BlogPost = ({ item, blocks, friend }) => {
 // const BlogPost = ({ blocks }) => {
+  if(!item) return null;
   return (
     <div className="container mx-auto max-w-3xl" >
       <nav className="navbar">
