@@ -1,12 +1,12 @@
 import { NotionRenderer } from "react-notion";
 
 import { getDatabase } from '../index';
-import { getFriendChain } from '../index';
+// import { getFriendChain } from '../index';
 import Link from "next/link";
+import { useRouter } from 'next/router'
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps ({ params }) {
   const items = await getDatabase();
-  const friend = await getFriendChain(items);
   const Slug = params.slug;
   const item = items.find((t) => t.Slug === Slug);
   const blocks = await fetch(`https://notion-api.splitbee.io/v1/page/${item.id}`).then((res) => res.json());
@@ -14,29 +14,35 @@ export async function getStaticProps({ params }) {
     props: {
      blocks,
      item,
-     friend
     },
   };
 }
 
-export async function getStaticPaths() {
-  const table = await getDatabase();
-  return {
-    paths: table.map((row) => {`/blog/${row.Slug}`} ),
-    fallback: true,
-  };
-}
+// export async function getStaticPaths() {
+//   const table = await getDatabase();
+//   // const post = posts[0];
+//   return {
+//     paths: table.map((row) => `/blog/${row.Slug}`),
+//     fallback: true,
+//   };
+// }
 
-const BlogPost = ({ item, blocks, friend }) => {
+const BlogPost = ({ item, blocks}) => {
 // const BlogPost = ({ blocks }) => {
-  if(!item) return null;
+  const router = useRouter()
+  // If the page is not yet generated, this will be displayed
+  // initially until getStaticProps() finishes running
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="container mx-auto max-w-3xl" >
       <nav className="navbar">
         <Link href="/" passHref>
           <div className=" navbar-brand cursor-pointer"><span>主页</span></div>
         </Link>
-        <Link href="/blog/[slug]" as={`/blog/${friend.Slug}`} passHref>
+        <Link href="/blog/[slug]" as={`/blog/friend-chain`} passHref>
           <div className=" navbar-brand cursor-pointer"><span>友链</span></div>
         </Link>
       </nav>

@@ -2,16 +2,15 @@ import fetch from "node-fetch";
 import Link from "next/link";
 
 const user = {
-  NOTION_Page_id: process.env.NOTION_BLOG_ID,  // 你的页面id
-  name: process.env.NAME || 'Mysterious man',              // blog 标题
-  intro: process.env.INTRO || 'Hi there👋',                                 // blog 介绍
-  github: `https://github.com/${process.env.GITHUB_NAME}`,                   // github 链接
-  githubName: process.env.GITHUB_NAME || 'Mysterious',                                  // github 用户名
+  NOTION_Page_id: process.env.NOTION_BLOG_ID,               // 你的页面id
+  name: process.env.NAME,                                   // blog 标题
+  intro: process.env.INTRO,                                 // blog 介绍
+  github: `https://github.com/${process.env.GITHUB_NAME}`,  // github 链接
+  githubName: process.env.GITHUB_NAME,                      // github 用户名
 };
 // console.log(process.env.NOTION_BLOG_ID)
 const NOTION_BLOG_ID =
-  process.env.NOTION_BLOG_ID || `72a0620229214dc38358fec81666c372`;
-
+  process.env.NOTION_BLOG_ID
 export const getDatabase = async () => {
   return await fetch(
     `https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`
@@ -24,14 +23,10 @@ export const getPage = async () => {
   ).then((res) => res.json());
 };
 
-export const getFriendChain = async (data) => {
-  const friend = data.find(item => item.Slug === "friend-chain")
-  return friend
-};
 
 
 
-function Blog({blocks ,page, friend, user}) {
+function Blog({blocks ,page, user}) {
   // id, Tag, Published, Description, Cover, Date, Page
   return (
     <div className="container mx-auto max-w-3xl">
@@ -39,7 +34,7 @@ function Blog({blocks ,page, friend, user}) {
         <Link href="/" passHref>
           <div className=" navbar-brand cursor-pointer"><span>主页</span></div>
         </Link>
-        <Link href="/blog/[slug]" as={`/blog/${friend.Slug}`} passHref>
+        <Link href="/blog/[slug]" as={`/blog/friend-chain`} passHref>
           <div className=" navbar-brand cursor-pointer"><span>友链</span></div>
         </Link>
       </nav>
@@ -51,7 +46,6 @@ function Blog({blocks ,page, friend, user}) {
         </header>
         <div>
           {blocks.map((item) => {
-            if(item.Published){
               return <div key={item.id} className="cursor-pointer ">
                 <Link href="/blog/[slug]" as={`/blog/${item.Slug}`} passHref>
                   <div className=" Blog-card box-border p-4 ">
@@ -74,7 +68,6 @@ function Blog({blocks ,page, friend, user}) {
                   </div>
                 </Link>
               </div>
-            }
           })}
         </div>
         <footer className="footer">
@@ -89,15 +82,14 @@ function Blog({blocks ,page, friend, user}) {
 }
 
 
-export async function getStaticProps () {
-  const blocks = await getDatabase();
+export async function getServerSideProps () {
+  const Allblocks = await getDatabase();
   const page = await getPage();
-  const friend = await getFriendChain(blocks);
+  const blocks = Allblocks.filter((item) => item.Published);
   return {
     props: {
       blocks,
       page,
-      friend,
       user
     }
   }
