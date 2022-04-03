@@ -41,7 +41,7 @@ const BlogPost = ({ item, blocks}) => {
     <div className="container mx-auto max-w-3xl" >
       <Head>
         <title>{item.Page}</title>
-        <meta name="Description" content={item.Description}> </meta>
+        <meta property="og:title" content={item.Description} key="title" />
       </Head>
       <nav className="navbar">
         <Link href="/" passHref>
