@@ -3,6 +3,7 @@ import { NotionRenderer } from "react-notion";
 import { getDatabase } from '../index';
 // import { getFriendChain } from '../index';
 import Link from "next/link";
+import Head from "next/head";
 import { useRouter } from 'next/router'
 
 export async function getServerSideProps ({ params }) {
@@ -38,6 +39,9 @@ const BlogPost = ({ item, blocks}) => {
 
   return (
     <div className="container mx-auto max-w-3xl" >
+      <Head>
+        <title>{item.Page}</title>
+      </Head>
       <nav className="navbar">
         <Link href="/" passHref>
           <div className=" navbar-brand cursor-pointer"><span>主页</span></div>

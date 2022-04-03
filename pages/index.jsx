@@ -1,5 +1,6 @@
 import fetch from "node-fetch";
 import Link from "next/link";
+import Head from "next/head";
 
 const user = {
   NOTION_Page_id: process.env.NOTION_BLOG_ID,               // 你的页面id
@@ -30,6 +31,9 @@ function Blog({blocks ,page, user}) {
   // id, Tag, Published, Description, Cover, Date, Page
   return (
     <div className="container mx-auto max-w-3xl">
+      <Head>
+        <title>{user.name}</title>
+      </Head>
       <nav className="navbar">
         <Link href="/" passHref>
           <div className=" navbar-brand cursor-pointer"><span>主页</span></div>
