@@ -33,6 +33,7 @@ function Blog({blocks ,page, user}) {
     <div className="container mx-auto max-w-3xl">
       <Head>
         <title>{user.name}</title>
+        <meta name="Description" content="个人博客"> </meta>
       </Head>
       <nav className="navbar">
         <Link href="/" passHref>
