@@ -1,7 +1,6 @@
 import Img from "next/image";
 
 function Header( {user} ) {
-  console.log('url',user.Cover[0].url)
   return (
     <>
       <header className="mb-6">
