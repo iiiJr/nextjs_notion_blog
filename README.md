@@ -18,9 +18,6 @@ https://wealthy-spandex-08f.notion.site/72a0620229214dc38358fec81666c372?v=ab1c3
 但你还需要在部署时修改一下环境变量：
 ```
 NOTION_BLOG_ID=你的页面ID
-NAME=你的博客名
-INTRO=介绍
-GITHUB_NAME=github名字
 ```
 
 ### 举个🌰
