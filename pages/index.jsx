@@ -1,86 +1,23 @@
-import fetch from "node-fetch";
-import Link from "next/link";
-import Head from "next/head";
-
-const user = {
-  NOTION_Page_id: process.env.NOTION_BLOG_ID,               // 你的页面id
-  name: process.env.NAME,                                   // blog 标题
-  intro: process.env.INTRO,                                 // blog 介绍
-  github: `https://github.com/${process.env.GITHUB_NAME}`,  // github 链接
-  githubName: process.env.GITHUB_NAME,                      // github 用户名
-};
-// console.log(process.env.NOTION_BLOG_ID)
-const NOTION_BLOG_ID =
-  process.env.NOTION_BLOG_ID
-export const getDatabase = async () => {
-  return await fetch(
-    `https://notion-api.splitbee.io/v1/table/${NOTION_BLOG_ID}`
-  ).then((res) => res.json());
-};
-
-export const getPage = async () => {
-  return await fetch(
-    `https://notion-api.splitbee.io/v1/page/${NOTION_BLOG_ID}`
-  ).then((res) => res.json());
-};
+import Nav from "../components/Nav";
+import Header from "../components/Header";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
+import { getDatabase } from "../api/http";
 
 
-
-
-function Blog({blocks ,page, user}) {
+function Blog({blocks, user}) {
   // id, Tag, Published, Description, Cover, Date, Page
   return (
     <div className="container mx-auto max-w-3xl">
-      <Head>
-        <title>{user.name}</title>
-        {/* <meta name="Description" content="个人博客"> </meta> */}
-        <meta property="og:title" content="个人博客" key="title" />
-      </Head>
-      <nav className="navbar">
-        <Link href="/" passHref>
-          <div className=" navbar-brand cursor-pointer"><span>主页</span></div>
-        </Link>
-        <Link href="/blog/[slug]" as={`/blog/friend-chain`} passHref>
-          <div className=" navbar-brand cursor-pointer"><span>友链</span></div>
-        </Link>
-      </nav>
+      <Nav user={user}></Nav>
       <div className="my-6 bg-gray-200 container mx-auto mb-6 md:my-6 px-4 sm:px-6 justify-center flex-grow max-w-3xl bg-base-200 rounded p-4" >
-        <header className="mb-6">
-          <div className="Header-img">{page.id}</div>
-          <div className="Header-title">{`${user.name}'s Blog`}</div>
-          <div className="Header-intro ">{user.intro}</div>
-        </header>
+        <Header user={user}></Header>
         <div>
           {blocks.map((item) => {
-              return <div key={item.id} className="cursor-pointer ">
-                <Link href="/blog/[slug]" as={`/blog/${item.Slug}`} passHref>
-                  <div className=" Blog-card box-border p-4 ">
-                    <div className="Blog-card-title">{item.Page}</div>
-                    <div className="Blog-card-content">
-                      <div className="Blog-card-content-Date">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <div>{item.Date}</div>
-                      </div>
-                      <div className="Blog-card-content-description">{item.Description}</div>
-                        <div className="Blog-card-content-tag">
-                          {item.Tag.map((index)=> (
-                            <div key={index} className="Blog-card-content-tag-child">
-                              <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-3 h-3 mr-1"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg></div>
-                              <div>{index || 'Tag'}</div>
-                            </div>
-                          ))}
-                        </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+              return <Card key={item.id} item={item}></Card>
           })}
         </div>
-        <footer className="footer">
-          <Link href={user.github} passHref>
-            <div className="cursor-pointer">github: {user.githubName}</div>
-          </Link>
-        </footer>
+        {/* <Footer></Footer> */}
       </div>
     </div>
 
@@ -90,12 +27,11 @@ function Blog({blocks ,page, user}) {
 
 export async function getServerSideProps () {
   const Allblocks = await getDatabase();
-  const page = await getPage();
+  const user = Allblocks.find((t) => t.Slug === 'main');
   const blocks = Allblocks.filter((item) => item.Published);
   return {
     props: {
       blocks,
-      page,
       user
     }
   }

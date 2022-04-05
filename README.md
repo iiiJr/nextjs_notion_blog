@@ -32,4 +32,4 @@ GITHUB_NAME=github名字
 
 - [ ] 主题系统
 
-- [ ] 首页img头像
+- [-] 首页img头像
