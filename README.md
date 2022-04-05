@@ -28,5 +28,5 @@ NOTION_BLOG_ID=你的页面ID
 ## TODO
 
 - [ ] 主题系统
+- [X] 首页img头像
 
-- [-] 首页img头像
