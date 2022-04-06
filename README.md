@@ -23,7 +23,7 @@ NOTION_BLOG_ID=你的页面ID
 ### 举个🌰
 我的Blog: https://iiijr.site/
 ## 其它
-使用到的技术：nextJS,notion,[react-notion-x](https://github.com/NotionX/react-notion-x),[react-notion](https://github.com/splitbee/react-notion)
+使用到的技术：nextjs,notion,[react-notion-x](https://github.com/NotionX/react-notion-x),[react-notion](https://github.com/splitbee/react-notion)
 
 ## TODO
 
