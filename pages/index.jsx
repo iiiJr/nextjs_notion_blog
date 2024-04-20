@@ -9,18 +9,18 @@ import { getDatabase } from "../api/http";
 function Blog({blocks, user}) {
   // id, Tag, Published, Description, Cover, Date, Page
   return (
-    <div className="container mx-auto max-w-3xl">
-      {/* TODO 添加meta title SEO 优化 */}
+    <div className="container mx-auto max-w-3xl flex flex-col items-center">
+      {/* ... 其他组件 ... */}
       <Nav user={user}></Nav>
-      <div className="my-6 bg-gray-200 container mx-auto mb-6 md:my-6 px-4 sm:px-6 justify-center flex-grow max-w-3xl bg-base-200 rounded p-4" >
+      <div className="my-6 bg-gray-200 p-4 rounded">
         <Header user={user}></Header>
-        <div>
+        <div className="flex-grow">
           {blocks.map((item) => {
-              return <Card key={item.id} item={item}></Card>
+            return <Card key={item.id} item={item}></Card>
           })}
         </div>
-        {/* <Footer></Footer> */}
       </div>
+      {/* ... 可能存在的 Footer 组件 ... */}
     </div>
 
   );
