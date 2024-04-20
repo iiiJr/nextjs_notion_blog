@@ -1,108 +1,145 @@
+/* 全局样式 */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #FFFFFF; /* 白色背景 */
+  color: #333333; /* 深灰色文本 */
+  margin: 0;
+  padding: 20px;
+}
+
+/* Navbar样式 */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1rem;
-  font-weight: bold;
+  padding: 10px 20px;
+  background-color: #333333; /* 深灰色导航栏 */
+  color: #FFFFFF;
 }
+
 .navbar-brand {
-  margin: 1rem;
-  text-decoration: none;
-}
-.Header-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.Header-title {
   font-size: 1.5rem;
   font-weight: bold;
+  text-decoration: none;
+}
+
+/* Header样式 */
+.Header-title {
+  font-size: 2.5rem;
+  color: #333333; /* 深灰色标题 */
   margin-bottom: 0.5rem;
 }
+
 .Header-intro {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  margin-left: 1rem;
-  white-space: normal;
-  word-break: break-all;
-  overflow: hidden;
-}
-.footer {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
+/* Blog Card样式 */
 .Blog-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  border-radius: 0.5rem;
-  background-color: rgb(233 231 231);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  background-color: #FFFFFF; /* 白色背景 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
 }
 
 .Blog-card:hover {
-  transition: all 0.5s;
-  box-shadow: 0 0.5rem 1rem rgba(110, 110, 110, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.Blog-card-content {
-  max-width: 766px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-}
-.Blog-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-}
+/* Blog Card Title 样式 */
 .Blog-card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  color: #333333;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
 }
+
+.Blog-card-title:hover {
+  color: #1A237E;
+  text-decoration: underline;
+}
+
 .Blog-card-content-Date {
   display: flex;
-  font-size: 0.75rem;
-  align-items: center;
-  white-space: normal;
-  word-break: break-all;
-  overflow: hidden;
-}
-.Blog-card-content-tag {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-}
-.Blog-card-content-tag-child {
-  color: aliceblue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.75rem;
-  border-radius: 1.9rem;
-  padding: 0.15rem;
-  margin-bottom: 0.5rem;
-  margin-left: 0.5rem;
-  background-color: rgb(92 127 103);
-}
-svg {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
-}
-.Blog-card-content-description {
-  font-size: 1rem;
-  margin-left: 1rem;
-  white-space: normal;
-  word-break: break-all;
-  overflow: hidden;
+  align-items: center; /* 垂直居中 */
+  margin-top: 10px;
 }
 
+.Blog-card-content-Date .date-text {
+  margin-left: 5px; /* SVG和文本之间的间距 */
+  color: #6c757d; /* 中灰色文本 */
+}
+
+.Blog-card-content-description {
+  font-size: 1rem;
+  color: #6c757d; /* 中灰色文本 */
+  margin-top: 10px;
+}
+
+/* 标签样式 */
+.Blog-card-content-tag-child {
+  display: inline-flex;
+  align-items: center;
+  background-color: #6c757d; /* 中灰色标签 */
+  color: #FFFFFF;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-right: 5px;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.Blog-card-content-tag-child:hover {
+  background-color: #495057; /* 深灰色标签悬停 */
+}
+
+/* 图标样式 */
+.tag-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.3rem;
+  fill: currentColor;
+}
+
+/* Footer样式 */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #333333; /* 深灰色 */
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+/* 链接和按钮样式 */
+a {
+  color: #6c757d; /* 中灰色链接 */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #495057; /* 深灰色悬停 */
+}
+
+button {
+  background-color: #6c757d; /* 中灰色按钮 */
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #495057; /* 深灰色按钮悬停 */
+}
